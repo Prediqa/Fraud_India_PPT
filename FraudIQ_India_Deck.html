@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FraudIQ™ — India Payer Integrity Platform | KASH5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#07080F;
+  --teal:#00C9A7;--teal2:#00A88A;
+  --gold:#F5A623;--gold2:#E89210;
+  --slate:#8CA3BF;--slate2:#A8BCCF;
+  --white:#FFFFFF;
+  --danger:#E85D4A;
+  --fraud:#FF4D6D;--fraud2:#C9184A;
+  --amber:#F39C12;
+  --purple:#A78BFA;
+  --saffron:#FF9933;
+  --indblue:#000080;
+}
+html,body{width:100%;background:#07080F;font-family:'DM Sans',sans-serif;color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,8,15,0.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,77,109,0.18);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:56px}
+.nav-left{display:flex;align-items:center;gap:10px}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--fraud)}
+.nav-sub{font-size:11px;color:var(--slate);border-left:1px solid rgba(255,255,255,0.1);padding-left:10px;margin-left:2px}
+.nav-dots{display:flex;gap:7px}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.15);cursor:pointer;transition:all .2s}
+.nav-dot.active,.nav-dot:hover{background:var(--fraud);transform:scale(1.3)}
+.slide-counter{font-size:11px;color:var(--slate)}
+
+.slide{min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:62px 0 20px;position:relative;overflow:hidden}
+.slide-inner{width:100%;max-width:1100px;margin:0 auto;padding:0 28px}
+.slide-num{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--fraud);opacity:.65;margin-bottom:8px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,3.5vw,44px);line-height:1.05;letter-spacing:-1px;margin-bottom:5px}
+.section-sub{font-size:13px;color:var(--slate2);font-weight:400;margin-bottom:18px;max-width:640px;line-height:1.5}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,77,109,0.22),transparent);margin:22px 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media print {
+  html,body{background:#07080F !important}
+  .slide{background:#07080F !important}
+  #s1,#s2,#s3,#s4,#s5,#s6,#s7,#s8,#s9,#s10,#s11,#s12{background:#07080F !important}
+  .s1-grid{display:none}
+}
+
+.src-cap{position:absolute;bottom:10px;left:14px;right:14px;font-size:9.5px;color:rgba(255,255,255,0.35);font-style:italic;line-height:1.4;border-top:1px solid rgba(255,255,255,0.06);padding-top:7px;margin-top:8px}
+.src-cap a{color:rgba(255,200,100,0.6);text-decoration:none}
+
+/* ===== SLIDE 1 COVER ===== */
+#s1{background:radial-gradient(ellipse 50% 40% at 85% 50%,rgba(255,77,109,0.06) 0%,transparent 60%),linear-gradient(135deg,#030407 0%,#07080F 60%,#07080F 100%)}
+.s1-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,77,109,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,77,109,0.03) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+.s1-bg{position:absolute;right:3%;top:50%;transform:translateY(-50%);font-family:'DM Serif Display',serif;font-size:260px;line-height:1;color:var(--fraud);opacity:.04;pointer-events:none;letter-spacing:-10px}
+.s1-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,77,109,0.1);border:1px solid rgba(255,77,109,0.28);border-radius:100px;padding:5px 16px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--fraud);margin-bottom:28px}
+.s1-parent{font-size:12px;font-weight:500;color:var(--slate);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.s1-h1{font-family:'DM Serif Display',serif;font-size:clamp(52px,7vw,90px);line-height:.95;font-weight:400;margin-bottom:10px;letter-spacing:-3px}
+.s1-h1 em{color:var(--fraud);font-style:italic}
+.s1-tag{font-size:clamp(13px,1.4vw,16px);color:var(--slate2);font-weight:300;max-width:560px;line-height:1.55;margin-bottom:28px}
+.s1-meta{display:flex;gap:36px;flex-wrap:wrap}
+.s1-mi{display:flex;flex-direction:column;gap:3px}
+.s1-ml{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--slate)}
+.s1-mv{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:var(--white)}
+.pilot-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);color:var(--gold);letter-spacing:.5px}
+.pilot-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ===== SLIDE 2 LEAKAGE CRISIS ===== */
+#s2{background:linear-gradient(160deg,#030407 0%,#07080F 100%)}
+.loss-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.lcard{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px 16px 34px;position:relative;overflow:hidden;transition:border-color .25s}
+.lcard:hover{border-color:rgba(255,77,109,.3)}
+.lcard .lc-ico{font-size:24px;margin-bottom:12px;display:block}
+.lcard .lc-n{font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,2.2vw,28px);font-weight:700;color:var(--fraud);line-height:1;margin-bottom:5px}
+.lcard .lc-l{font-size:11px;color:var(--slate2);line-height:1.45}
+.lcard .lc-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--fraud),transparent);opacity:.45}
+.cascade-box{background:rgba(255,77,109,0.07);border:1px solid rgba(255,77,109,0.22);border-radius:10px;padding:12px 18px;display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
+.cb-ico{font-size:30px;flex-shrink:0;margin-top:2px}
+.cb-t{font-size:12px;color:var(--white);line-height:1.55}
+.cb-t strong{color:var(--fraud)}
+.intercept-flow{display:flex;align-items:stretch;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+.if-step{flex:1;padding:11px 10px;background:rgba(255,255,255,0.025);border-right:1px solid rgba(255,255,255,0.05);text-align:center}
+.if-step:last-child{border-right:none}
+.if-step .is-ico{font-size:18px;margin-bottom:7px;display:block}
+.if-step .is-l{font-size:10.5px;font-weight:600;color:var(--white);margin-bottom:2px}
+.if-step .is-s{font-size:9.5px;color:var(--slate);line-height:1.35}
+.if-step.fraud-step{background:rgba(255,77,109,0.07);border-color:rgba(255,77,109,0.18)}
+.if-step.fraud-step .is-l{color:var(--fraud)}
+.if-step.stop-step{background:rgba(0,201,167,0.05);border-color:rgba(0,201,167,0.15)}
+.if-step.stop-step .is-l{color:var(--teal)}
+
+/* ===== SLIDE 3 INDIA PAYER BREAKDOWN ===== */
+#s3{background:linear-gradient(160deg,#040608 0%,#07090C 100%)}
+.in-4{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px}
+.in-card{border-radius:12px;padding:12px 14px 32px;position:relative;overflow:hidden}
+.in-card.c-pmjay{background:rgba(255,77,109,0.06);border:1px solid rgba(255,77,109,0.2)}
+.in-card.c-cghs{background:rgba(0,201,167,0.045);border:1px solid rgba(0,201,167,0.15)}
+.in-card.c-echs{background:rgba(245,166,35,0.055);border:1px solid rgba(245,166,35,0.2)}
+.in-card.c-tpa{background:rgba(167,139,250,0.05);border:1px solid rgba(167,139,250,0.18)}
+.in-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:100px;margin-bottom:6px}
+.in-card.c-pmjay .in-tag{background:rgba(255,77,109,0.15);color:var(--fraud)}
+.in-card.c-cghs .in-tag{background:rgba(0,201,167,0.12);color:var(--teal)}
+.in-card.c-echs .in-tag{background:rgba(245,166,35,0.15);color:var(--gold)}
+.in-card.c-tpa .in-tag{background:rgba(167,139,250,0.13);color:var(--purple)}
+.in-num{font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,2vw,28px);font-weight:700;line-height:1;margin-bottom:4px}
+.in-card.c-pmjay .in-num{color:var(--fraud)}
+.in-card.c-cghs .in-num{color:var(--teal)}
+.in-card.c-echs .in-num{color:var(--gold)}
+.in-card.c-tpa .in-num{color:var(--purple)}
+.in-title{font-size:11.5px;font-weight:700;color:var(--white);margin-bottom:4px}
+.in-desc{font-size:10.5px;color:var(--slate2);line-height:1.45}
+.in-fiq{margin-top:6px;font-size:10px;color:var(--white);font-weight:500}
+.in-fiq span{color:var(--teal)}
+.opp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden}
+.os-cell{padding:7px 10px;border-right:1px solid rgba(255,255,255,0.07);text-align:center}
+.os-cell:last-child{border-right:none}
+.os-n{font-family:'DM Serif Display',serif;font-size:22px;line-height:1;letter-spacing:-1px;margin-bottom:3px}
+.os-l{font-size:9.5px;color:var(--slate);line-height:1.35}
+
+/* ===== SLIDE 4 — 5 PAIN POINTS ===== */
+#s4{background:linear-gradient(160deg,#030407 0%,#060608 100%)}
+.pain-5{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.pain-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px 14px;position:relative;overflow:hidden}
+.pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.pain-card.p1::before{background:linear-gradient(90deg,#c0392b,#FF8A75)}
+.pain-card.p2::before{background:linear-gradient(90deg,#b7620a,#F5A623)}
+.pain-card.p3::before{background:linear-gradient(90deg,#5b3db5,#A78BFA)}
+.pain-card.p4::before{background:linear-gradient(90deg,#0f6e56,#00C9A7)}
+.pain-card.p5::before{background:linear-gradient(90deg,#1a56db,#60A5FA)}
+.pain-ico{font-size:24px;margin-bottom:10px;display:block}
+.pain-name{font-size:12.5px;font-weight:700;color:var(--white);margin-bottom:5px}
+.pain-desc{font-size:11px;color:var(--slate2);line-height:1.45}
+.pain-card.p6{background:rgba(255,77,109,0.05);border:1px solid rgba(255,77,109,0.18);grid-column:span 1}
+.pain-card.p6::before{background:linear-gradient(90deg,var(--fraud2),var(--fraud))}
+.hard-evidence{background:rgba(255,77,109,0.06);border:1px solid rgba(255,77,109,0.2);border-radius:10px;padding:12px 16px}
+.he-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--fraud);margin-bottom:8px}
+.he-items{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.he-item{font-size:12px;color:var(--slate2);line-height:1.55;padding-left:16px;position:relative}
+.he-item::before{content:'⚠';position:absolute;left:0;font-size:10px;color:var(--fraud)}
+
+/* ===== SLIDE 5 SIX ENGINES ===== */
+#s5{background:linear-gradient(160deg,#030407 0%,#060710 100%)}
+.eng-6{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:10px}
+.eng-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:12px 13px;position:relative;overflow:hidden}
+.eng-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.eng-card.e1::before{background:linear-gradient(90deg,#0f6e56,#00C9A7)}
+.eng-card.e2::before{background:linear-gradient(90deg,#1a56db,#60A5FA)}
+.eng-card.e3::before{background:linear-gradient(90deg,#5b3db5,#A78BFA)}
+.eng-card.e4::before{background:linear-gradient(90deg,#c0392b,#FF8A75)}
+.eng-card.e5::before{background:linear-gradient(90deg,#b7620a,#F5A623)}
+.eng-card.e6::before{background:linear-gradient(90deg,#0f1117,#8CA3BF)}
+.eng-num{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;margin-bottom:10px;opacity:.6}
+.eng-card.e1 .eng-num{color:#00C9A7}
+.eng-card.e2 .eng-num{color:#60A5FA}
+.eng-card.e3 .eng-num{color:#A78BFA}
+.eng-card.e4 .eng-num{color:#FF8A75}
+.eng-card.e5 .eng-num{color:#F5A623}
+.eng-card.e6 .eng-num{color:#8CA3BF}
+.eng-name{font-size:12px;font-weight:700;color:var(--white);margin-bottom:5px}
+.eng-desc{font-size:10.5px;color:var(--slate2);line-height:1.4;margin-bottom:7px}
+.eng-catches{display:flex;flex-direction:column;gap:5px}
+.eng-catch{font-size:10px;color:var(--slate2);padding-left:12px;position:relative;line-height:1.35}
+.eng-catch::before{content:'→';position:absolute;left:0;font-size:10px}
+.eng-card.e1 .eng-catch::before{color:#00C9A7}
+.eng-card.e2 .eng-catch::before{color:#60A5FA}
+.eng-card.e3 .eng-catch::before{color:#A78BFA}
+.eng-card.e4 .eng-catch::before{color:#FF8A75}
+.eng-card.e5 .eng-catch::before{color:#F5A623}
+.eng-card.e6 .eng-catch::before{color:#8CA3BF}
+.india-badge{font-size:9px;margin-top:7px;padding:2px 7px;border-radius:5px;background:rgba(255,77,109,0.12);border:1px solid rgba(255,77,109,0.2);color:var(--fraud);display:inline-block;font-weight:600}
+.real-audit{background:rgba(0,201,167,0.06);border:1px solid rgba(0,201,167,0.18);border-radius:10px;padding:11px 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.ra-cell{padding:0 18px;border-right:1px solid rgba(255,255,255,0.07);text-align:center}
+.ra-cell:first-child{padding-left:0}
+.ra-cell:last-child{border-right:none}
+.ra-n{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--teal);line-height:1;margin-bottom:3px}
+.ra-l{font-size:10px;color:var(--slate2);line-height:1.35}
+.ra-save{font-size:10px;color:var(--teal);font-weight:600;margin-top:3px}
+
+/* ===== SLIDE 6 INDIA-SPECIFIC ===== */
+#s6{background:linear-gradient(160deg,#030407 0%,#060608 100%)}
+.payer-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);margin-bottom:22px}
+.payer-table th{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);background:rgba(255,255,255,0.04);padding:8px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.07)}
+.payer-table td{font-size:10.5px;color:var(--slate2);padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.05);vertical-align:top;line-height:1.4}
+.payer-table tr:last-child td{border-bottom:none}
+.payer-table tr:hover td{background:rgba(255,77,109,0.03)}
+.pt-payer{font-weight:700;color:var(--white);font-size:11.5px}
+.pt-preloaded{font-size:11px;color:var(--teal);font-weight:600}
+.challenge-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.07)}
+.challenge-table th{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);background:rgba(255,255,255,0.03);padding:6px 12px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.challenge-table td{font-size:10.5px;padding:6px 12px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--slate2);line-height:1.4}
+.challenge-table tr:last-child td{border-bottom:none}
+.td-check{color:var(--teal);font-weight:700}
+
+/* ===== SLIDE 7 IRDAI 2025 ===== */
+#s7{background:linear-gradient(160deg,#030407 0%,#060710 100%)}
+.irdai-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.irdai-row{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px;transition:border-color .25s}
+.irdai-row:hover{border-color:rgba(0,201,167,0.25)}
+.ir-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.ir-req{font-size:11px;font-weight:600;color:var(--white);margin-bottom:2px}
+.ir-desc{font-size:10px;color:var(--slate2);line-height:1.4}
+.ir-status{display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:100px;background:rgba(0,201,167,0.1);border:1px solid rgba(0,201,167,0.25);color:var(--teal);margin-top:5px}
+.irdai-highlight{background:rgba(255,153,51,0.07);border:1px solid rgba(255,153,51,0.22);border-radius:10px;padding:12px 18px}
+.ih-text{font-size:12px;color:var(--white);line-height:1.55}
+.ih-text strong{color:var(--saffron)}
+
+/* ===== SLIDE 8 ROI ===== */
+#s8{background:linear-gradient(160deg,#030407 0%,#06070E 100%)}
+.roi-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-bottom:12px}
+.roi-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.08)}
+.roi-table th{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);background:rgba(255,255,255,0.04);padding:7px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.07)}
+.roi-table td{font-size:11px;color:var(--slate2);padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.roi-table tr:last-child td{border-bottom:none}
+.rt-loss{color:var(--fraud);font-weight:600;font-family:'Space Grotesk',sans-serif}
+.rt-save{color:var(--teal);font-weight:600;font-family:'Space Grotesk',sans-serif}
+.rt-pct{color:var(--gold);font-weight:700;font-size:11px}
+.roi-summary{display:flex;flex-direction:column;gap:14px}
+.rs-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:12px 14px}
+.rs-n{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,54px);line-height:1;letter-spacing:-1px;margin-bottom:5px}
+.rs-l{font-size:10.5px;color:var(--slate2);line-height:1.4}
+.roi-strip{background:rgba(255,77,109,0.06);border:1px solid rgba(255,77,109,0.2);border-radius:10px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.roi-strip .big{font-family:'DM Serif Display',serif;font-size:clamp(30px,4vw,52px);color:var(--fraud);line-height:1;letter-spacing:-1px}
+.roi-strip .txt{font-size:12px;color:var(--white);max-width:420px;line-height:1.5}
+.roi-strip .txt strong{color:var(--gold)}
+
+/* ===== SLIDE 9 COMPETITIVE ===== */
+#s9{background:linear-gradient(160deg,#030407 0%,#060608 100%)}
+.comp-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);margin-bottom:12px}
+.comp-table th{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.08)}
+.comp-table th:first-child{text-align:left;color:var(--slate);background:rgba(255,255,255,0.03)}
+.comp-table th.th-fraudiq{background:rgba(255,77,109,0.12);color:var(--fraud);border-left:2px solid rgba(255,77,109,0.4)}
+.comp-table th.th-other{background:rgba(255,255,255,0.03);color:var(--slate)}
+.comp-table td{font-size:11px;padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.05);text-align:center;color:var(--slate)}
+.comp-table td:first-child{text-align:left;color:var(--slate2);font-size:10.5px;background:rgba(255,255,255,0.02)}
+.comp-table .td-fiq{background:rgba(255,77,109,0.05);border-left:2px solid rgba(255,77,109,0.25);font-weight:700;color:var(--teal)}
+.comp-table .td-no{color:rgba(255,255,255,0.2)}
+.comp-table .td-partial{color:var(--gold)}
+.comp-table tr:last-child td{border-bottom:none}
+
+/* ===== SLIDE 10 TRACTION ===== */
+#s10{background:linear-gradient(160deg,#040608 0%,#07090C 100%)}
+.roadmap{display:flex;flex-direction:column;gap:0;margin-bottom:14px;border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden}
+.rm-row{display:grid;grid-template-columns:100px 1fr;align-items:center;padding:9px 16px;border-bottom:1px solid rgba(255,255,255,0.05);transition:background .2s}
+.rm-row:last-child{border-bottom:none}
+.rm-row:hover{background:rgba(255,77,109,0.03)}
+.rm-phase{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px}
+.rm-time{font-size:12px;color:var(--slate);font-style:italic}
+.rm-del{font-size:11px;color:var(--slate2);line-height:1.4}
+.rm-row.active-phase{background:rgba(255,77,109,0.05)}
+.rm-row.active-phase .rm-phase{color:var(--fraud)}
+.rm-row:not(.active-phase) .rm-phase{color:var(--slate)}
+.traction-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tr-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:14px 16px}
+.tr-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:10px}
+.tr-main{font-family:'DM Serif Display',serif;font-size:clamp(24px,3vw,40px);line-height:1.1;letter-spacing:-1px;margin-bottom:6px}
+.tr-sub{font-size:11px;color:var(--slate2);line-height:1.4}
+
+/* ===== SLIDE 11 THE ASK ===== */
+#s11{background:linear-gradient(160deg,#030407 0%,#060608 100%)}
+.ask-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.ask-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:16px 16px;text-align:center}
+.ask-ico{font-size:22px;margin-bottom:8px;display:block}
+.ask-price{font-family:'Space Grotesk',sans-serif;font-size:clamp(16px,1.8vw,22px);font-weight:700;color:var(--fraud);line-height:1;margin-bottom:4px}
+.ask-label{font-size:11.5px;font-weight:700;color:var(--white);margin-bottom:5px}
+.ask-desc{font-size:10.5px;color:var(--slate2);line-height:1.45}
+.ask-strip{background:rgba(255,77,109,0.06);border:1px solid rgba(255,77,109,0.2);border-radius:10px;padding:14px 20px}
+.as-text{font-size:12px;color:var(--white);line-height:1.55}
+.as-text strong{color:var(--fraud)}
+.as-text em{color:var(--gold);font-style:normal;font-weight:700}
+
+/* ===== SLIDE 12 CTA ===== */
+#s12{background:radial-gradient(ellipse 50% 40% at 50% 100%,rgba(255,77,109,0.06) 0%,transparent 60%),linear-gradient(180deg,#030407 0%,#07080F 100%)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">FraudIQ™</div>
+    <span class="nav-sub">KASH5 Technologies · India Payer Integrity Platform</span>
+  </div>
+  <div class="nav-dots" id="navDots"></div>
+  <div class="slide-counter" id="slideCounter">1 / 12</div>
+</nav>
+
+<!-- S1 COVER -->
+<section class="slide" id="s1">
+  <div class="s1-grid"></div>
+  <div class="s1-bg">FIQ</div>
+  <div class="slide-inner">
+    <div class="s1-parent reveal">KASH5 Technologies · Healthcare Intelligence Platform</div>
+    <div class="s1-badge reveal">🛡️ Pre-Payment Fraud Detection · India Payer Ecosystem</div>
+    <h1 class="s1-h1 reveal">Fraud<em>IQ</em>™</h1>
+    <p class="s1-tag reveal">India loses ₹8,000–10,000 crore annually to health insurance fraud, waste & abuse.<br>FraudIQ intercepts it — before the payment leaves.</p>
+    <div class="s1-meta reveal">
+      <div class="s1-mi">
+        <span class="s1-ml">US Pilot</span>
+        <span class="s1-mv" style="color:var(--teal)">Active ✓</span>
+      </div>
+      <div class="s1-mi">
+        <span class="s1-ml">India</span>
+        <span class="pilot-pill"><span class="dot"></span>Deployment Ready</span>
+      </div>
+      <div class="s1-mi">
+        <span class="s1-ml">Detection Engines</span>
+        <span class="s1-mv">6 Stages</span>
+      </div>
+      <div class="s1-mi">
+        <span class="s1-ml">Annual FWA Exposure</span>
+        <span class="s1-mv">₹10,000 Cr</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S2 LEAKAGE CRISIS -->
+<section class="slide" id="s2">
+  <div class="slide-inner">
+    <div class="slide-num reveal">01 — The Problem</div>
+    <h2 class="section-title reveal">India's Claims Money Leaves<br><span style="color:var(--fraud)">Before Anyone Checks.</span></h2>
+    <p class="section-sub reveal">From PM-JAY to CGHS, ECHS to private TPAs — every payer in India operates on a post-payment audit model. Fraud is invisible until it's too late.</p>
+
+    <div class="loss-3">
+      <div class="lcard reveal">
+        <span class="lc-ico">🇮🇳</span>
+        <div class="lc-n">₹1,17,505 Cr</div>
+        <div class="lc-l">India's total health insurance premium collected in FY 2024–25 — the largest pool of insured health spend in Indian history. One year. Multiple payers. Zero pre-payment firewall.</div>
+        <div class="src-cap">Source: IRDAI Annual Report 2024–25</div>
+        <div class="lc-bar"></div>
+      </div>
+      <div class="lcard reveal">
+        <span class="lc-ico">⚠️</span>
+        <div class="lc-n">₹8,000–10,000 Cr</div>
+        <div class="lc-l">Estimated annual fraud, waste & abuse across Indian health insurance. That is 7–9% of total premium — stolen before anyone looks. BCG-Medi Assist analysis, 2025.</div>
+        <div class="src-cap">Source: BCG–Medi Assist Healthcare Fraud Report 2025</div>
+        <div class="lc-bar"></div>
+      </div>
+      <div class="lcard reveal">
+        <span class="lc-ico">📉</span>
+        <div class="lc-n">&lt;20%</div>
+        <div class="lc-l">Recovery rate on fraud identified after payment. Post-pay audits find the pattern — months later. The money is gone. The provider is still billing. The cycle repeats.</div>
+        <div class="src-cap">Source: Global payment integrity benchmarks; IRDAI Fraud Monitoring Framework 2025</div>
+        <div class="lc-bar"></div>
+      </div>
+    </div>
+
+    <div class="cascade-box reveal">
+      <div class="cb-ico">⚡</div>
+      <div class="cb-t">
+        <strong>The cascade nobody catches in time:</strong> A hospital submits a claim to PM-JAY. It's upcoded. A duplicate is filed to the patient's TPA. Phantom investigations are added. The payer processes and pays — within 3–7 days — before any clinical cross-check. By the time an audit finds the pattern, <strong>the money is gone, and the hospital is still empanelled and still billing.</strong>
+      </div>
+    </div>
+
+    <div class="intercept-flow reveal">
+      <div class="if-step">
+        <span class="is-ico">🏥</span>
+        <div class="is-l">Claim Filed</div>
+        <div class="is-s">Hospital → PM-JAY / CGHS / ECHS / TPA</div>
+      </div>
+      <div class="if-step fraud-step">
+        <span class="is-ico">⚠️</span>
+        <div class="is-l">Fraud Occurs Here</div>
+        <div class="is-s">Upcoding, phantom billing, duplicate cross-payer filing</div>
+      </div>
+      <div class="if-step">
+        <span class="is-ico">💸</span>
+        <div class="is-l">Payment Released</div>
+        <div class="is-s">Payer pays before any clinical cross-check</div>
+      </div>
+      <div class="if-step">
+        <span class="is-ico">🔍</span>
+        <div class="is-l">Audit (Months Later)</div>
+        <div class="is-s">Pattern found — &lt;20% recovered</div>
+      </div>
+      <div class="if-step stop-step">
+        <span class="is-ico">🛡️</span>
+        <div class="is-l">FraudIQ Intercepts</div>
+        <div class="is-s">Flag before payment — loss stopped entirely</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3 INDIA PAYER BREAKDOWN -->
+<section class="slide" id="s3">
+  <div class="slide-inner">
+    <div class="slide-num reveal">02 — India Context</div>
+    <h2 class="section-title reveal">Five Payers. <span style="color:var(--fraud)">One Structural Hole.</span><br>Exposure Is Documented.</h2>
+    <p class="section-sub reveal">Every figure below is cited from government data, regulator orders, or CAG reports. FraudIQ addresses each payer's unique vulnerability — pre-payment.</p>
+
+    <div class="in-4">
+      <div class="in-card c-pmjay reveal">
+        <span class="in-tag">PM-JAY / Ayushman Bharat</span>
+        <div class="in-num">₹2,500–3,500 Cr</div>
+        <div class="in-title">Annual Fraud Exposure — World's Largest Health Cover Scheme</div>
+        <div class="in-desc">~40,000 claims/day in UP alone. 1,184 hospitals de-empanelled to date. ₹231.88 crore in penalties imposed. Oct 2025: 6,239 irregular claims worth ₹9.94 crore cleared via misused official logins in just 22 days — bypassing every existing control. NHA ISA workflows and mandatory hospital dashboards exist on paper; compliance is not pre-payment verified.</div>
+        <div class="in-fiq">FraudIQ: <span>Pre-payment cross-match against all 1,700+ HBP packages + NHA anti-fraud triggers before claim authorisation.</span></div>
+        <div class="src-cap">Source: NHA Annual Report 2024–25; NDTV / The Hindu PM-JAY fraud investigations Oct 2025</div>
+      </div>
+      <div class="in-card c-cghs reveal">
+        <span class="in-tag">CGHS</span>
+        <div class="in-num">₹800–1,200 Cr</div>
+        <div class="in-title">1.5 Crore Beneficiaries — 468 New Hospitals Empanelled 2025</div>
+        <div class="in-desc">Central Government Health Scheme covers 1.5+ crore beneficiaries across 80+ cities. 468 new hospitals empanelled in 2025 alone — each receiving reimbursement at CGHS rates. Billing against the 1,995-rate CGHS schedule requires active pre-payment coding checks; manual CGHS audits catch errors months after payment. Heritage TPA was warned by IRDAI for rejecting claims citing missing documents without forwarding the query.</div>
+        <div class="in-fiq">FraudIQ: <span>1,995 CGHS rates pre-loaded. Every line-item checked against rate schedule + empanelment validity before payment authorises.</span></div>
+        <div class="src-cap">Source: CGHS OM 22.12.2025 (effective 13.10.2025); IRDAI Heritage TPA warning order 2025</div>
+      </div>
+      <div class="in-card c-echs reveal">
+        <span class="in-tag">ECHS</span>
+        <div class="in-num">₹600–900 Cr</div>
+        <div class="in-title">₹12,100 Cr Budget (2026–27) — 55 Lakh Veterans + Dependents</div>
+        <div class="in-desc">Ex-Servicemen Contributory Health Scheme: ₹12,100 crore allocated 2026–27, 2,700+ empanelled hospitals, 55 lakh beneficiaries. Fake-card gang arrested (Apr 2026) for creating forged ECHS identity cards. CAG has flagged "inadequate oversight" across the entire network. ECHS rates set at 15% above CGHS — creating a billing differential that is being systematically exploited.</div>
+        <div class="in-fiq">FraudIQ: <span>ECHS rate list (15% above CGHS) + polyclinic referral logic pre-loaded. Biometric eligibility vault cross-checks card authenticity.</span></div>
+        <div class="src-cap">Source: Union Budget 2026–27; CAG Report on ECHS 2024; PTI fake-card arrest Apr 2026</div>
+      </div>
+      <div class="in-card c-tpa reveal">
+        <span class="in-tag">Private TPAs &amp; ESIC</span>
+        <div class="in-num">₹5,000–6,500 Cr</div>
+        <div class="in-title">90% "Risk-Free" — 8% Abusive — 2% Outright Fraudulent</div>
+        <div class="in-desc">India's ₹1,17,505 crore premium pool flows through private TPAs and ESIC (8+ crore insured persons; ₹8,000+ crore annual claims). Industry benchmark: 90% of claims appear risk-free; 8% abuse coding rules; 2% are outright fraud. A physiotherapist submitted fabricated brain-MRI reports for a ₹22.5 lakh claim — TPA approved it. IRDAI's 2025 Fraud Monitoring Framework (effective 1 April 2026) now mandates proactive pre-payment controls.</div>
+        <div class="in-fiq">FraudIQ: <span>IRDAI 2025 framework compliance built-in. Stop-loss triggers, COB detection, provider fraud rings flagged before payment.</span></div>
+        <div class="src-cap">Source: IRDAI Insurance Fraud Monitoring Framework 2025; ESIC Annual Report 2024–25; Times of India fabricated MRI case 2025</div>
+      </div>
+    </div>
+
+    <div class="opp-strip reveal">
+      <div class="os-cell">
+        <div class="os-n" style="color:var(--fraud)">₹10,000 Cr</div>
+        <div class="os-l">Estimated total annual fraud, waste & abuse across all Indian health payers</div>
+      </div>
+      <div class="os-cell">
+        <div class="os-n" style="color:var(--gold)">28+ Cr</div>
+        <div class="os-l">Insured Indians across PM-JAY, CGHS, ECHS, ESIC and private schemes — every claim is an exposure point</div>
+      </div>
+      <div class="os-cell">
+        <div class="os-n" style="color:var(--teal)">25.7%</div>
+        <div class="os-l">CAGR of India's health insurance fraud detection market — reaching $35.7B by 2031 (Research & Markets)</div>
+      </div>
+      <div class="os-cell">
+        <div class="os-n" style="color:var(--purple)">6+</div>
+        <div class="os-l">Separate billing rule sets (PM-JAY packages, CGHS rates, ECHS, ESIC, TPA packages) — no unified pre-payment check exists</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4 FIVE PAIN POINTS -->
+<section class="slide" id="s4">
+  <div class="slide-inner">
+    <div class="slide-num reveal">03 — The Structural Vulnerability</div>
+    <h2 class="section-title reveal">Five Overlapping <span style="color:var(--fraud)">Pain Points.</span></h2>
+    <p class="section-sub reveal">India's fraud crisis is not a data problem. It's a pre-payment verification problem. These five structural gaps exist across every payer simultaneously.</p>
+
+    <div class="pain-5">
+      <div class="pain-card p1 reveal">
+        <span class="pain-ico">🔗</span>
+        <div class="pain-name">Broken Clinical Loop</div>
+        <div class="pain-desc">Physician notes ⇄ nursing charts ⇄ vitals ⇄ investigations ⇄ treatment ⇄ pharmacy — the loop is never closed in real time. Bills get paid against incomplete or unverified clinical artefacts.</div>
+      </div>
+      <div class="pain-card p2 reveal">
+        <span class="pain-ico">⏱️</span>
+        <div class="pain-name">"Pay First, Audit Later" Model</div>
+        <div class="pain-desc">Claims are paid before any clinical-billing cross-check. Phantom services, upcoding, and duplicate claims pass undetected. Recovery after payment: less than ₹20 per ₹100 lost.</div>
+      </div>
+      <div class="pain-card p3 reveal">
+        <span class="pain-ico">📋</span>
+        <div class="pain-name">Multiple Payers, Inconsistent Rules</div>
+        <div class="pain-desc">PM-JAY packages, CGHS rate lists, ECHS polyclinic workflows, ESIC tariff schedules — billing teams juggle 6+ rule sets. "Coding to the highest payer" is inevitable without a unified pre-payment engine.</div>
+      </div>
+      <div class="pain-card p4 reveal">
+        <span class="pain-ico">📄</span>
+        <div class="pain-name">Illegible Unstructured Documents</div>
+        <div class="pain-desc">Handwritten discharge summaries, faded photocopies, missing consultant stamps — OCR-unfriendly and un-auditable at scale. Document forensics cannot catch what cannot be read.</div>
+      </div>
+      <div class="pain-card p5 reveal">
+        <span class="pain-ico">👻</span>
+        <div class="pain-name">Phantom &amp; Fabricated Claims</div>
+        <div class="pain-desc">Services never delivered; fake ECHS admission cards; forged pathology reports (Gujarat case); 29 identical radiology reports across a single admission. Each approved without clinical verification.</div>
+      </div>
+    </div>
+
+    <div class="hard-evidence reveal">
+      <div class="he-title">Hard Evidence — Oct 2025 to Apr 2026</div>
+      <div class="he-items">
+        <div class="he-item"><strong style="color:var(--fraud)">PM-JAY:</strong> 6,239 irregular claims worth ₹9.94 crore cleared via misused official logins in 22 days — bypassing all existing checks.</div>
+        <div class="he-item"><strong style="color:var(--gold)">ECHS:</strong> Fake-card gang arrested; CAG flagged "inadequate oversight" across 2,700+ empanelled hospitals.</div>
+        <div class="he-item"><strong style="color:var(--purple)">Private TPA:</strong> Physiotherapist submitted fabricated brain-MRI reports for a ₹22.5 lakh claim — TPA approved it without clinical cross-check.</div>
+        <div class="he-item"><strong style="color:var(--teal)">IRDAI:</strong> Heritage TPA warned for rejecting claims citing missing documents without forwarding queries — systemic process failure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S5 SIX ENGINES -->
+<section class="slide" id="s5">
+  <div class="slide-inner">
+    <div class="slide-num reveal">04 — Detection Architecture</div>
+    <h2 class="section-title reveal">Six Engines. <span style="color:var(--fraud)">One Firewall.</span></h2>
+    <p class="section-sub reveal">All six stages run before the payment authorisation gate. Traditional audit firms recover &lt;20% months later — FraudIQ stops 90–95% of fraudulent payouts before they happen.</p>
+
+    <div class="eng-6">
+      <div class="eng-card e1 reveal">
+        <div class="eng-num">STAGE 01 · TEAL</div>
+        <div class="eng-name">Ingestion &amp; Triage</div>
+        <div class="eng-desc">Every incoming claim is OCR-parsed, fingerprinted, de-duplicated, and assigned a FIQ risk score before any human reviews it.</div>
+        <div class="eng-catches">
+          <div class="eng-catch">Document hash + line-item fingerprint catches re-submitted claims under new IDs</div>
+          <div class="eng-catch">Completeness gate: missing consents, blank severity scores, absent clinical fields</div>
+          <div class="eng-catch">Blended risk score: provider history × claim-vs-peer ratio × document completeness</div>
+        </div>
+        <span class="india-badge">🇮🇳 Catches: PM-JAY claims resubmitted under new patient IDs after denial</span>
+      </div>
+      <div class="eng-card e2 reveal">
+        <div class="eng-num">STAGE 02 · BLUE</div>
+        <div class="eng-name">Member &amp; Benefit Vault</div>
+        <div class="eng-desc">Claim matched to the beneficiary's coverage, full claims history, prior authorisations, and EHR — including cross-payer coordination of benefits.</div>
+        <div class="eng-catches">
+          <div class="eng-catch">Eligibility, plan validity, sub-limits and exclusions vs diagnosis + place of service</div>
+          <div class="eng-catch">Pre-auth vs final claim diff — LOS creep and scope expansion flagged</div>
+          <div class="eng-catch">Cross-payer COB: detects same episode billed to CGHS and private TPA simultaneously</div>
+        </div>
+        <span class="india-badge">🇮🇳 Catches: ECHS fake-card identity reuse; CGHS + TPA dual filing</span>
+      </div>
+      <div class="eng-card e3 reveal">
+        <div class="eng-num">STAGE 03 · PURPLE</div>
+        <div class="eng-name">Document Forensics</div>
+        <div class="eng-desc">Before trusting any clinical data, FraudIQ authenticates every document — empanelment IDs, consultant signatures, scan metadata, physiologically impossible values.</div>
+        <div class="eng-catches">
+          <div class="eng-catch">Signature & credentials graph — NPI / CGHS ID vs procedure billed vs facility registration</div>
+          <div class="eng-catch">Impossible-value detector: vitals that cannot physiologically coexist</div>
+          <div class="eng-catch">Identity contradictions: blood-group mismatches, ECG machine header vs patient file</div>
+        </div>
+        <span class="india-badge">🇮🇳 Catches: fabricated MRI reports; fake ECHS cards; forged NABL accreditation logos</span>
+      </div>
+      <div class="eng-card e4 reveal">
+        <div class="eng-num">STAGE 04 · RED · CORE</div>
+        <div class="eng-name">Clinical Cross-Match</div>
+        <div class="eng-desc">The detection core. Bill reconciled against every clinical artefact — physician notes, nursing charts, vitals, labs, drug charts, operative notes — scored for medical necessity.</div>
+        <div class="eng-catches">
+          <div class="eng-catch">Bill vs notes vs labs vs drugs vs vitals — every mismatch scored and flagged</div>
+          <div class="eng-catch">Medical necessity scoring against PM-JAY HBP packages / CGHS clinical standards</div>
+          <div class="eng-catch">Lab-vs-drug safety: e.g. Meropenem 1g q8h at eGFR ~12 → 6× overdose + billing anomaly</div>
+        </div>
+        <span class="india-badge">🇮🇳 Real audit: drug dose 6× excess + phantom billing caught simultaneously</span>
+      </div>
+      <div class="eng-card e5 reveal">
+        <div class="eng-num">STAGE 05 · AMBER</div>
+        <div class="eng-name">Coding &amp; Pricing Audit</div>
+        <div class="eng-desc">Every code and price is audited against India-specific rules — PM-JAY package ceilings, CGHS rate lists, ECHS/ESIC formularies, unbundling and NCCI-equivalent edits.</div>
+        <div class="eng-catches">
+          <div class="eng-catch">Upcoding, unbundling, and code-pair conflict detection</div>
+          <div class="eng-catch">ICU unbundling: piped O₂ on top of ICU package → ₹38,000 disallowed</div>
+          <div class="eng-catch">Pharmaceutical mark-up and phantom prescription detection</div>
+        </div>
+        <span class="india-badge">🇮🇳 Real audit: 29 identical CXRs → 5–6 defensible → ₹5,290 saved pre-payment</span>
+      </div>
+      <div class="eng-card e6 reveal">
+        <div class="eng-num">STAGE 06 · SLATE</div>
+        <div class="eng-name">Adjudication &amp; Network Intelligence</div>
+        <div class="eng-desc">Final verdict + provider network mining — cumulative Provider Intelligence Score, coordinated fraud rings, SIU referral, IIB platform data sharing.</div>
+        <div class="eng-catches">
+          <div class="eng-catch">Provider billing spikes — cumulative anomaly score vs peer cohort</div>
+          <div class="eng-catch">Cross-employer coordinated fraud rings flagged across PM-JAY + ESIC + TPA</div>
+          <div class="eng-catch">SIU referral + IRDAI fraud intelligence sharing API-ready</div>
+        </div>
+        <span class="india-badge">🇮🇳 Catches: multi-hospital fraud rings; Nikshay TB notification gap flagged</span>
+      </div>
+    </div>
+
+    <div class="real-audit reveal">
+      <div class="ra-cell">
+        <div class="ra-n">29 CXRs</div>
+        <div class="ra-l">Billed in single admission (₹6,670)</div>
+        <div class="ra-save">→ Defensible: 5–6 scans (₹1,380)</div>
+      </div>
+      <div class="ra-cell">
+        <div class="ra-n">₹5,290</div>
+        <div class="ra-l">Stopped pre-payment from radiology alone</div>
+        <div class="ra-save">→ Real audit data, Supreme Hospital</div>
+      </div>
+      <div class="ra-cell">
+        <div class="ra-n">8 Echos</div>
+        <div class="ra-l">Billed (₹11,800) → 3 defensible (₹4,425)</div>
+        <div class="ra-save">→ ₹7,375 saved on echo alone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S6 INDIA-SPECIFIC CONFIGURATION -->
+<section class="slide" id="s6">
+  <div class="slide-inner">
+    <div class="slide-num reveal">05 — India-First Configuration</div>
+    <h2 class="section-title reveal">Not a Generic Tool.<br><span style="color:var(--fraud)">Pre-Configured for India.</span></h2>
+    <p class="section-sub reveal">FraudIQ ships with every Indian payer's rate schedule, package codes, empanelment rules, and clinical standards pre-loaded. Day one, not month three.</p>
+
+    <table class="payer-table reveal">
+      <thead>
+        <tr>
+          <th>Payer</th>
+          <th>Pre-loaded Rules &amp; Data</th>
+          <th>Key FraudIQ Capability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-payer">PM-JAY</span></td>
+          <td><span class="pt-preloaded">✓ Pre-loaded</span> — 1,700+ HBP packages, NHA anti-fraud triggers, ISA workflow, mandatory hospital dashboard rules</td>
+          <td style="color:var(--slate2)">Package ceiling checks, duplicate beneficiary ID detection, 40,000 claims/day throughput</td>
+        </tr>
+        <tr>
+          <td><span class="pt-payer">CGHS</span></td>
+          <td><span class="pt-preloaded">✓ Pre-loaded</span> — 1,995 official CGHS rates (OM 22.12.2025), 2025 empanelment directories, pre-auth workflows for 22 high-cost packages</td>
+          <td style="color:var(--slate2)">Rate schedule compliance, ward entitlement differentials, admissible vs non-admissible classification</td>
+        </tr>
+        <tr>
+          <td><span class="pt-payer">ECHS</span></td>
+          <td><span class="pt-preloaded">✓ Pre-loaded</span> — ECHS rate list (15% above CGHS), polyclinic referral logic, CAG audit-ready report templates</td>
+          <td style="color:var(--slate2)">Card biometric verification, referral chain validation, 15% differential exploit detection</td>
+        </tr>
+        <tr>
+          <td><span class="pt-payer">ESIC</span></td>
+          <td><span class="pt-preloaded">✓ Pre-loaded</span> — ESI medical benefit rates, IPHS standards for empanelled hospitals, contribution-day validation logic</td>
+          <td style="color:var(--slate2)">Contribution eligibility cross-check, IPHS compliance scoring, employer fraud ring detection</td>
+        </tr>
+        <tr>
+          <td><span class="pt-payer">Private TPAs</span></td>
+          <td><span class="pt-preloaded">✓ Pre-loaded</span> — IRDAI Fraud Framework 2025 (effective Apr 2026), payer-specific packages, stop-loss triggers, COB detection</td>
+          <td style="color:var(--slate2)">IIB platform API-ready, real-time red-flag indicators, board-level fraud governance dashboards</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="challenge-table reveal">
+      <thead>
+        <tr>
+          <th style="text-align:left">India Challenge</th>
+          <th style="text-align:left">FraudIQ Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>28+ crore insured across 5 payer categories; PM-JAY alone 40,000 claims/day</td>
+          <td><span class="td-check">✅</span> Scales to any volume; sub-200ms latency per claim</td>
+        </tr>
+        <tr>
+          <td>Multiple rule sets — PM-JAY packages, CGHS, ECHS, ESIC, TPA</td>
+          <td><span class="td-check">✅</span> Configurable multi-payer rules engine, all rate lists pre-ingested</td>
+        </tr>
+        <tr>
+          <td>Post-payment audits recover &lt;20% of fraud</td>
+          <td><span class="td-check">✅</span> Pre-payment firewall stops 90–95% of fraudulent payouts</td>
+        </tr>
+        <tr>
+          <td>Handwritten / unstructured clinical notes, illegible documents</td>
+          <td><span class="td-check">✅</span> AI-powered OCR + forensic workspace for human-in-loop validation</td>
+        </tr>
+        <tr>
+          <td>Phantom billing, fake identity cards (ECHS / PM-JAY cases)</td>
+          <td><span class="td-check">✅</span> Document forensics + biometric eligibility vault cross-references</td>
+        </tr>
+        <tr>
+          <td>Provider fraud rings inflating claims across employers and payers</td>
+          <td><span class="td-check">✅</span> Provider Intelligence Score + network graph analytics + SIU referral</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- S7 IRDAI 2025 COMPLIANCE -->
+<section class="slide" id="s7">
+  <div class="slide-inner">
+    <div class="slide-num reveal">06 — Regulatory Mandate</div>
+    <h2 class="section-title reveal">IRDAI 2025 Framework:<br><span style="color:var(--fraud)">Proactive Prevention Is Now Law.</span></h2>
+    <p class="section-sub reveal">The Insurance Fraud Monitoring Framework 2025 (effective 1 April 2026) fundamentally redefines fraud management. Every Indian insurer and TPA must comply — or face IRDAI action.</p>
+
+    <div class="irdai-grid reveal">
+      <div class="irdai-row">
+        <div class="ir-icon">🛡️</div>
+        <div>
+          <div class="ir-req">Proactive Prevention — Not Reactive Detection</div>
+          <div class="ir-desc">Every insurer must operate a pre-payment interception system. Post-pay audit alone is no longer compliant under the 2025 framework.</div>
+          <div class="ir-status">✓ FraudIQ: Pre-payment firewall across all 6 engines</div>
+        </div>
+      </div>
+      <div class="irdai-row">
+        <div class="ir-icon">📊</div>
+        <div>
+          <div class="ir-req">Board-Level Fraud Governance</div>
+          <div class="ir-desc">Fraud data must flow to board and senior management in real time — not in quarterly audit reports.</div>
+          <div class="ir-status">✓ FraudIQ: Real-time dashboards for CEO / CFO / CCO / CTO roles</div>
+        </div>
+      </div>
+      <div class="irdai-row">
+        <div class="ir-icon">🤖</div>
+        <div>
+          <div class="ir-req">Automated Red-Flag Indicators</div>
+          <div class="ir-desc">Manual flag-raising is insufficient. Automated, documented, auditable red-flag indicators are required per framework clause.</div>
+          <div class="ir-status">✓ FraudIQ: 6 engines + ML models + full explainability layer</div>
+        </div>
+      </div>
+      <div class="irdai-row">
+        <div class="ir-icon">🌐</div>
+        <div>
+          <div class="ir-req">Industry-Wide Fraud Intelligence Sharing (IIB)</div>
+          <div class="ir-desc">Insurers must contribute to and consume from the Insurance Information Bureau's fraud intelligence platform.</div>
+          <div class="ir-status">✓ FraudIQ: IIB API-ready; blacklisted provider data shared automatically</div>
+        </div>
+      </div>
+      <div class="irdai-row">
+        <div class="ir-icon">📈</div>
+        <div>
+          <div class="ir-req">Predictive Modelling — High-Risk Claims Pre-Adjudication</div>
+          <div class="ir-desc">The framework mandates predictive models that identify high-risk claims before they are adjudicated and paid.</div>
+          <div class="ir-status">✓ FraudIQ: FIQ risk score + provider network analytics pre-payment</div>
+        </div>
+      </div>
+      <div class="irdai-row">
+        <div class="ir-icon">📁</div>
+        <div>
+          <div class="ir-req">Fraud-Sensitive Audit Trails</div>
+          <div class="ir-desc">Every fraud decision must be documented, explainable, and appeal-ready — accessible to IRDAI investigators.</div>
+          <div class="ir-status">✓ FraudIQ: Full explainability + SHA-256 audit log + appeal documentation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="irdai-highlight reveal">
+      <p class="ih-text"><strong>The compliance window is now:</strong> The IRDAI Fraud Monitoring Framework took effect <strong>1 April 2026</strong>. Every TPA, insurer, and government payer operating without an automated pre-payment fraud control is already out of compliance. FraudIQ helps payers move from <strong>"whispered-about fraud"</strong> to a fully automated, board-ready, IRDAI-compliant fraud defence — in 10 weeks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S8 ROI -->
+<section class="slide" id="s8">
+  <div class="slide-inner">
+    <div class="slide-num reveal">07 — Financial Case</div>
+    <h2 class="section-title reveal">₹1 Spent.<br><span style="color:var(--fraud)">₹40–60 Saved.</span></h2>
+    <p class="section-sub reveal">Based on real pre-payment audit data from Indian hospital claims. Mid-sized hospital, annual claims volume ₹4–6 crore.</p>
+
+    <div class="roi-grid">
+      <table class="roi-table reveal">
+        <thead>
+          <tr>
+            <th>Loss Type</th>
+            <th>Annual Loss Without FIQ</th>
+            <th>With FIQ</th>
+            <th>Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Upcoding &amp; unbundling</td>
+            <td><span class="rt-loss">₹24–36 lakh</span></td>
+            <td><span class="rt-save">₹1–3 lakh</span></td>
+            <td><span class="rt-pct">90–95%</span></td>
+          </tr>
+          <tr>
+            <td>Phantom radiology &amp; echo</td>
+            <td><span class="rt-loss">₹8–12 lakh</span></td>
+            <td><span class="rt-save">₹0.5–1 lakh</span></td>
+            <td><span class="rt-pct">90%</span></td>
+          </tr>
+          <tr>
+            <td>Pharmaceutical over-billing</td>
+            <td><span class="rt-loss">₹16–24 lakh</span></td>
+            <td><span class="rt-save">₹2–4 lakh</span></td>
+            <td><span class="rt-pct">85%</span></td>
+          </tr>
+          <tr>
+            <td>ICU unbundling (O₂/ward rounds)</td>
+            <td><span class="rt-loss">₹6–10 lakh</span></td>
+            <td><span class="rt-save">₹0.2–0.5 lakh</span></td>
+            <td><span class="rt-pct">95%</span></td>
+          </tr>
+          <tr>
+            <td>Documentation-driven denials</td>
+            <td><span class="rt-loss">₹8–12 lakh</span></td>
+            <td><span class="rt-save">₹1–2 lakh</span></td>
+            <td><span class="rt-pct">85%</span></td>
+          </tr>
+          <tr style="background:rgba(255,77,109,0.04)">
+            <td style="color:var(--white);font-weight:700">Annual FraudIQ cost</td>
+            <td colspan="2" style="color:var(--slate);text-align:center">₹3–5 lakh / year</td>
+            <td>—</td>
+          </tr>
+          <tr style="background:rgba(0,201,167,0.05)">
+            <td style="color:var(--white);font-weight:700">Net Annual Benefit</td>
+            <td colspan="2" style="font-family:'Space Grotesk';font-weight:700;color:var(--teal);font-size:15px;text-align:center">₹58 lakh – ₹97 lakh</td>
+            <td><span class="rt-pct" style="font-size:13px">40–60× ROI</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="roi-summary">
+        <div class="rs-card reveal">
+          <div class="rs-n" style="color:var(--fraud)">₹97L+</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:6px">Max Annual Saving — Single Mid-Size Hospital</div>
+          <div class="rs-l">At a ₹5L/year FraudIQ cost, a mid-sized hospital claiming ₹4–6 crore annually saves up to ₹97 lakh in stopped fraud and prevented denials.</div>
+        </div>
+        <div class="rs-card reveal">
+          <div class="rs-n" style="color:var(--gold)">50×+</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:6px">ROI Documented — US Pilot Active</div>
+          <div class="rs-l">FraudIQ's US Medicare Advantage pilot demonstrates 50×+ ROI. India's fraud density is higher. The India return is expected to exceed the US benchmark.</div>
+        </div>
+        <div class="rs-card reveal">
+          <div class="rs-n" style="color:var(--purple)">10 wks</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:6px">India Deployment Timeline</div>
+          <div class="rs-l">Phase 1 configuration through Phase 4 go-live in 10 weeks. No rip-and-replace — FraudIQ sits above your existing HIS or claim intake system.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="roi-strip reveal">
+      <div class="big">₹1 → ₹60</div>
+      <div class="txt">Every rupee invested in FraudIQ stops <strong>₹40–60 in fraud, waste, and abuse</strong> — before it leaves the payer. India's ₹10,000 crore annual FWA crisis demands pre-payment action, not more post-pay audits.</div>
+    </div>
+  </div>
+</section>
+
+<!-- S9 COMPETITIVE -->
+<section class="slide" id="s9">
+  <div class="slide-inner">
+    <div class="slide-num reveal">08 — Competitive Position</div>
+    <h2 class="section-title reveal">Nothing Else Does <span style="color:var(--fraud)">Pre-Payment</span><br>At This Depth.</h2>
+    <p class="section-sub reveal">FraudIQ sits above your existing HIS — no rip-and-replace. Zero other solution combines clinical cross-match, document forensics, and India-specific payer rules in real time.</p>
+
+    <table class="comp-table reveal">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th class="th-other">Manual Audit Firms</th>
+          <th class="th-other">Rule-Based Edits</th>
+          <th class="th-other">Post-Pay Analytics</th>
+          <th class="th-fraudiq">FRAUDIQ™</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pre-payment interception</td>
+          <td class="td-no">❌</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-no">❌</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+        <tr>
+          <td>Real-time AI (&lt;200ms latency)</td>
+          <td class="td-no">❌</td>
+          <td class="td-no">❌</td>
+          <td class="td-no">❌</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+        <tr>
+          <td>Clinical notes ⇄ bill cross-match</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-no">❌</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+        <tr>
+          <td>Lab ⇄ drug safety verification</td>
+          <td class="td-no">❌</td>
+          <td class="td-no">❌</td>
+          <td class="td-no">❌</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+        <tr>
+          <td>Radiology over-utilisation detection</td>
+          <td class="td-no">❌</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-no">❌</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+        <tr>
+          <td>PM-JAY / CGHS / ECHS / ESIC rules</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-fiq">✅ Pre-loaded</td>
+        </tr>
+        <tr>
+          <td>Document forensics (forged reports)</td>
+          <td class="td-no">❌</td>
+          <td class="td-no">❌</td>
+          <td class="td-no">❌</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+        <tr>
+          <td>IRDAI 2025 audit trail + IIB API</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-fiq">✅ Built-in</td>
+        </tr>
+        <tr>
+          <td>Provider fraud ring detection</td>
+          <td class="td-no">❌</td>
+          <td class="td-no">❌</td>
+          <td class="td-partial">Partial</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+        <tr>
+          <td>Zero rip-and-replace</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="td-fiq">✅</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:rgba(255,77,109,0.06);border:1px solid rgba(255,77,109,0.18);border-radius:12px;padding:18px 22px" class="reveal">
+      <p style="font-size:14px;color:var(--white);line-height:1.7"><strong style="color:var(--fraud)">The honest answer:</strong> Rule-based edits catch the easy stuff. Post-pay analytics tell you what you already lost. Manual auditors are expensive and slow. <strong style="color:var(--teal)">FraudIQ is the only solution that closes the clinical loop, authenticates documents, and cross-references every billing element against India's payer rules — before the payment authorises.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- S10 TRACTION & ROADMAP -->
+<section class="slide" id="s10">
+  <div class="slide-inner">
+    <div class="slide-num reveal">09 — Traction &amp; Roadmap</div>
+    <h2 class="section-title reveal">Live in the US.<br><span style="color:var(--fraud)">India-Ready in 10 Weeks.</span></h2>
+    <p class="section-sub reveal">Global validation active. India deployment pre-configured. Every payer's rate list and rules already ingested — ready to go live.</p>
+
+    <div class="roadmap reveal">
+      <div class="rm-row active-phase">
+        <div>
+          <div class="rm-phase">Phase 1</div>
+          <div class="rm-time">Weeks 1–3</div>
+        </div>
+        <div class="rm-del"><strong style="color:var(--white)">Configuration</strong> — PM-JAY / CGHS / ECHS / ESIC rule ingestion (rate lists, package codes, formularies). Client HIS API mapping and data schema alignment.</div>
+        <div></div>
+      </div>
+      <div class="rm-row">
+        <div>
+          <div class="rm-phase">Phase 2</div>
+          <div class="rm-time">Weeks 4–6</div>
+        </div>
+        <div class="rm-del"><strong style="color:var(--white)">Integration</strong> — API to existing HIS / claim intake system. COFLER clinical intelligence layer activated. Document OCR pipeline validated on client document types.</div>
+        <div></div>
+      </div>
+      <div class="rm-row">
+        <div>
+          <div class="rm-phase">Phase 3</div>
+          <div class="rm-time">Weeks 7–9</div>
+        </div>
+        <div class="rm-del"><strong style="color:var(--white)">Pilot</strong> — Live parallel run on anonymised claims. ML models calibrated for India-specific billing patterns. FIQ risk threshold tuned to client payer mix.</div>
+        <div></div>
+      </div>
+      <div class="rm-row">
+        <div>
+          <div class="rm-phase">Phase 4</div>
+          <div class="rm-time">Week 10+</div>
+        </div>
+        <div class="rm-del"><strong style="color:var(--white)">Go-Live</strong> — Full pre-payment firewall active. SIU dashboard live. IRDAI-compliant audit logs streaming. Board-level fraud governance dashboard deployed.</div>
+        <div></div>
+      </div>
+      <div class="rm-row">
+        <div>
+          <div class="rm-phase">Phase 5</div>
+          <div class="rm-time">Ongoing</div>
+        </div>
+        <div class="rm-del"><strong style="color:var(--white)">Optimisation</strong> — Model retraining, Provider Intelligence Score recalibration, new payer rule ingestion, IIB feed activation, SIU referral workflow expansion.</div>
+        <div></div>
+      </div>
+    </div>
+
+    <div class="traction-2 reveal">
+      <div class="tr-card">
+        <div class="tr-label">Global Validation</div>
+        <div class="tr-main" style="color:var(--teal)">US Pilot Active</div>
+        <div class="tr-sub">Medicare Advantage + commercial payer. 50×+ ROI documented. Same six-stage architecture — configured for India's PM-JAY, CGHS, ECHS, ESIC, and TPA ecosystem.</div>
+      </div>
+      <div class="tr-card">
+        <div class="tr-label">India Readiness</div>
+        <div class="tr-main" style="color:var(--fraud)">Pre-Loaded &amp; Ready</div>
+        <div class="tr-sub">All five Indian payer rule sets pre-ingested. IRDAI 2025 Fraud Monitoring Framework (effective Apr 2026) compliance built in from day one. 10-week deployment. No rip-and-replace.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S11 THE ASK -->
+<section class="slide" id="s11">
+  <div class="slide-inner">
+    <div class="slide-num reveal">10 — The Ask</div>
+    <h2 class="section-title reveal">India Loses ₹8,000–10,000 Crore<br><span style="color:var(--fraud)">Every Year. Every Day of Delay Costs More.</span></h2>
+    <p class="section-sub reveal">Three entry points. One outcome: pre-payment protection for India's payers.</p>
+
+    <div class="ask-3">
+      <div class="ask-card reveal">
+        <span class="ask-ico">🏥</span>
+        <div class="ask-price">₹3–5 Lakh/yr</div>
+        <div class="ask-label">Mid-Sized Hospital</div>
+        <div class="ask-desc">Annual claims ₹4–6 crore. Full pre-payment firewall. Saves ₹58–97 lakh/year. 40–60× ROI. NABH + CGHS + ECHS + TPA multi-payer configuration.</div>
+      </div>
+      <div class="ask-card reveal">
+        <span class="ask-ico">🏢</span>
+        <div class="ask-price">Enterprise Licensing</div>
+        <div class="ask-label">Payers &amp; TPAs</div>
+        <div class="ask-desc">Full enterprise licensing for CGHS, PM-JAY, ECHS, ESIC, and private TPA organisations. Scales to any claims volume. IRDAI 2025 compliance included. IIB API-ready.</div>
+      </div>
+      <div class="ask-card reveal">
+        <span class="ask-ico">📅</span>
+        <div class="ask-price">8–12 Weeks</div>
+        <div class="ask-label">Deployment Timeline</div>
+        <div class="ask-desc">India-specific configuration. No rip-and-replace of existing HIS. Five payer rule sets pre-loaded. Board-level fraud governance dashboard active at go-live.</div>
+      </div>
+    </div>
+
+    <div class="ask-strip reveal">
+      <p class="as-text">
+        <strong>The IRDAI Fraud Monitoring Framework is already in force as of 1 April 2026.</strong> Every Indian insurer and TPA operating without automated pre-payment fraud controls is non-compliant today. FraudIQ is not a future investment — it is an <em>immediate compliance requirement</em> and a <em>₹40–60× ROI</em> on every rupee spent. India's fraud crisis demands pre-payment action — <strong>not more post-pay audits that recover less than 20 cents per rupee lost.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- S12 CTA -->
+<section class="slide" id="s12">
+  <div class="slide-inner">
+    <div style="text-align:center;max-width:720px;margin:0 auto">
+      <div class="slide-num reveal" style="text-align:center">11 — Let's Stop the Leak</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(36px,5.5vw,72px);line-height:1.1;letter-spacing:-2px;margin-bottom:16px" class="reveal">See <em style="color:var(--fraud)">FraudIQ</em><br>Catch Fraud in<br>India's Data.</h2>
+      <p style="font-size:17px;color:var(--slate2);line-height:1.65;margin-bottom:44px" class="reveal">US platform live. India deployment ready.<br>We'll run a live anomaly scan on anonymised Indian claims data — in your office, in 30 minutes.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px" class="reveal">
+        <a href="mailto:tapan@exponentialcapitals.com" style="background:var(--fraud);color:#fff;font-weight:700;font-size:14px;padding:15px 30px;border-radius:100px;text-decoration:none;display:inline-block;transition:all .2s">Request Live Demo — India</a>
+        <a href="https://www.kash5.com" target="_blank" style="background:transparent;color:var(--white);font-weight:600;font-size:14px;padding:15px 30px;border-radius:100px;border:1px solid rgba(255,255,255,0.18);text-decoration:none;display:inline-block">Visit KASH5.com</a>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px 32px;display:inline-flex;gap:32px;text-align:left;flex-wrap:wrap;justify-content:center" class="reveal">
+        <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate)">Founder</span><span style="font-size:14px;color:var(--white);font-weight:500">Dr. Tapan Shah</span></div>
+        <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate)">Email</span><span style="font-size:14px;color:var(--white);font-weight:500">tapan@exponentialcapitals.com</span></div>
+        <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate)">Phone</span><span style="font-size:14px;color:var(--white);font-weight:500">+91 85951 33348</span></div>
+        <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate)">Website</span><span style="font-size:14px;color:var(--white);font-weight:500">www.kash5.com</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const nd = document.getElementById('navDots');
+const sc = document.getElementById('slideCounter');
+const N = slides.length;
+slides.forEach((_,i)=>{const d=document.createElement('div');d.className='nav-dot'+(i===0?' active':'');d.onclick=()=>slides[i].scrollIntoView({behavior:'smooth'});nd.appendChild(d)});
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const i=[...slides].indexOf(x.target);document.querySelectorAll('.nav-dot').forEach((d,j)=>d.classList.toggle('active',j===i));sc.textContent=(i+1)+' / '+N}})},{threshold:0.5});
+slides.forEach(s=>io.observe(s));
+const rv=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>rv.observe(el));
+</script>
+</body>
+</html>
